@@ -232,6 +232,10 @@ DOCKER_ARGS+=("-e USER")
 DOCKER_ARGS+=("-e ISAAC_ROS_WS=/workspaces/isaac_ros-dev")
 DOCKER_ARGS+=("-e HOST_USER_UID=`id -u`")
 DOCKER_ARGS+=("-e HOST_USER_GID=`id -g`")
+DOCKER_ARGS+=("-e GEMINI_API_KEY")
+DOCKER_ARGS+=("-v $HOME/.bash_history:/home/admin/.bash_history")
+DOCKER_ARGS+=("-v /dev/input:/dev/input")
+DOCKER_ARGS+=("--group-add=input")
 
 # Forward SSH Agent to container if the ssh agent is active.
 if [[ -n $SSH_AUTH_SOCK ]]; then
